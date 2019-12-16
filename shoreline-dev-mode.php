@@ -38,14 +38,7 @@ if ( !function_exists( 'sl9_dev_mode_alert' ) ) {
     // Don't show for non admin users
     if ( ( is_multisite() && !is_super_admin() ) || !current_user_can( 'manage_options' ) ) return false;
 
-    if (
-      // If the WP_ENV constant is defined and set to 'staging' or 'development'
-      ( defined( 'WP_ENV' ) && ( 'local' === WP_ENV || 'staging' === WP_ENV || 'development' === WP_ENV ) )
-      // Or if WP_LOCAL_DEV constant is set
-      || defined( 'WP_LOCAL_DEV' )
-      // If we're on WPE and it is the staging site
-      || function_exists( 'is_wpe_snapshot' ) && is_wpe_snapshot()
-    ) {
+    if ( sl9_is_staging() ) {
 
       $css = sl9_dev_mode_css();
 
