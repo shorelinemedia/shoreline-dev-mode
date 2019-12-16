@@ -2,12 +2,17 @@
 
 This plugin adds support to be able to gate certain functionality depending on whether the Wordpress site is in developer/staging mode.
 
+The function `sl9_is_staging()` can be used to optionally show some code or functions depending on whether it's a staging/local environment. A good practice would be to only include Google Analytics or other tracking scripts when the site is **not** in a development/local environment.
+
 When you are running your site locally, add the following line to your `wp-config.php` file:
 
 `define( 'WP_ENV', 'development' );`
 
 This function also looks for the "Legacy" WPEngine staging environment setup as well.
 
+### Dev Mode
+
+This plugin helps you know you are on a development version of a website. It adds a helpful CSS style to the admin bar on the website, using a red background on the Wordpress logo and a red border in addition to a `DEV` label in the top left of the site.
 
 ### Installation
 
