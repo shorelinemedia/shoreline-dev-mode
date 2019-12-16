@@ -2,7 +2,7 @@
 
 This plugin adds support to be able to gate certain functionality depending on whether the Wordpress site is in developer/staging mode.
 
-When you are running your site locally, add the following line to your wp-onfig.php file:
+When you are running your site locally, add the following line to your `wp-config.php` file:
 
 `define( 'WP_ENV', 'development' );`
 
