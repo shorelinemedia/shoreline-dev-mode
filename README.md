@@ -47,3 +47,17 @@ This should be bulletproof-- if this plugin is removed and our function doesn't 
 Install the [Github Updater](https://github.com/afragen/github-updater/archive/master.zip) plugin by uploading the ZIP file and activating on your wordpress install.
 
 Install the plugin through the Github Updater's Install Plugin section by using the full github URL of `https://github.com/shorelinemedia/shoreline-dev-mode` and then activate the plugin under Plugins section
+
+## Integrations
+
+We try and integrate with popular plugins to disable some functionality while in staging/development environments
+
+#### CF7 to Webhook/Zapier
+
+By default, when running this dev mode plugin and the CF7 to Webhook plugin, it will disable webhooks entirely by passing an empty URL to the plugin in a dev environment. *This will also cause an error when trying to send a CF7 form on the frontend.*
+
+To override a webhook URL and test the webhook or to get form sending working again in staging, supply a URL like one at [webhooks.site](https://webhook.site/) in a constant in `wp-config.php`:
+
+``
+define( 'CF7_TO_WEBHOOK_DEV_URL', 'https://webhook.site/5bb1f633-0686-4a3c-9443-fc7f27b02929' );
+``
