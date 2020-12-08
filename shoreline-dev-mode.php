@@ -3,7 +3,7 @@
 * Plugin Name:          Shoreline Dev Mode
 * Plugin URI:           https://github.com/shorelinemedia/shoreline-dev-mode
 * Description:          Adds function <code>sl9_is_staging</code> and styles the admin bar with a red box and the word "DEV" in the top left to help indicate that you are on a staging/dev version of the site
-* Version:              1.2
+* Version:              1.3
 * Author:               Shoreline Media
 * Author URI:           https://shoreline.media
 * License:              GNU General Public License v2
@@ -19,13 +19,15 @@ if ( !function_exists( 'sl9_is_staging' ) ) {
     return (
       // Check for new wp_get_environment_type() function and also check for
       // defined 'WP_ENVIRONMENT_TYPE' constant
-      ( function_exists( 'wp_get_environment_type' ) && defined( 'WP_ENVIRONMENT_TYPE' ) && ( 'production' !== WP_ENVIRONMENT_TYPE ) ) 
+      ( function_exists( 'wp_get_environment_type' ) && 'production' !== wp_get_environment_type() ) 
       // If the WP_ENV constant is defined and set to 'staging' or 'development'
       || ( defined( 'WP_ENV' ) && ( 'local' === WP_ENV || 'staging' === WP_ENV || 'development' === WP_ENV ) )
       // Or if WP_LOCAL_DEV constant is set
       || defined( 'WP_LOCAL_DEV' )
+      // If we're on Siteground hosting and it's a staging environment
+      || ( defined( 'SITEGROUND_STAGING' ) && SITEGROUND_STAGING )
       // If we're on WPE and it is the "legacy" staging site
-      || function_exists( 'is_wpe_snapshot' ) && is_wpe_snapshot()
+      || ( function_exists( 'is_wpe_snapshot' ) && is_wpe_snapshot() )
     );
   }
 }
