@@ -32,9 +32,11 @@ if ( !function_exists( 'sl9_dev_mode_get_webhook_url' ) ) {
 // Add our filters on init
 if ( !function_exists( 'sl9_dev_mode_webhooks_init' ) ) {
     function sl9_dev_mode_webhooks_init() {
-      // Filter the webhook URL for
+      // Filter the webhook URL for CF7, GForms & Highlevel
       add_filter( 'ctz_hook_url', 'sl9_dev_mode_cf7_to_webhook_url', 99, 2 );
       add_filter( 'gform_webhooks_request_url', 'sl9_dev_mode_gforms_webhook_url', 99, 4 );
+      add_filter( 'sl9_gohighlevel_api_url_campaign', 'sl9_dev_mode_gohighlevel_webhook_url', 99 );
+      add_filter( 'sl9_gohighlevel_api_url', 'sl9_dev_mode_gohighlevel_webhook_url', 99 );
     }
     add_action( 'init', 'sl9_dev_mode_webhooks_init' );
 }
@@ -56,6 +58,16 @@ if ( !function_exists( 'sl9_dev_mode_cf7_to_webhook_url' ) ) {
 
 if ( !function_exists( 'sl9_dev_mode_gforms_webhook_url' ) ) {
     function sl9_dev_mode_gforms_webhook_url( $hook_url, $feed, $entry, $form ) {
+        return sl9_dev_mode_get_webhook_url( $hook_url );
+    }
+}
+
+///
+// Shoreline GoHighlevel plugin
+///
+
+if ( !function_exists( 'sl9_dev_mode_gohighlevel_webhook_url' ) ) {
+    function sl9_dev_mode_gohighlevel_webhook_url( $hook_url ) {
         return sl9_dev_mode_get_webhook_url( $hook_url );
     }
 }
