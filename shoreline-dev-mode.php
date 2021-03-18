@@ -3,7 +3,7 @@
 * Plugin Name:          Shoreline Dev Mode
 * Plugin URI:           https://github.com/shorelinemedia/shoreline-dev-mode
 * Description:          Adds function <code>sl9_is_staging</code> and styles the admin bar with a red box and the word "DEV" in the top left to help indicate that you are on a staging/dev version of the site
-* Version:              1.3
+* Version:              1.4
 * Author:               Shoreline Media
 * Author URI:           https://shoreline.media
 * License:              GNU General Public License v2
@@ -11,6 +11,11 @@
 * Text Domain:          sl9-scripts-codes
 * GitHub Plugin URI:    https://github.com/shorelinemedia/shoreline-dev-mode
 */
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
 
 // Is this a staging/dev server?
@@ -30,6 +35,19 @@ if ( !function_exists( 'sl9_is_staging' ) ) {
       || ( function_exists( 'is_wpe_snapshot' ) && is_wpe_snapshot() )
     );
   }
+}
+
+// Helper functions with similar function names that return the same thing--
+// basically that it's not prod
+
+if ( !function_exists( 'sl9_is_not_prod' ) ) {
+  function sl9_is_not_prod() { return sl9_is_staging(); }
+}
+if ( !function_exists( 'sl9_is_dev' ) ) {
+  function sl9_is_dev() { return sl9_is_staging(); }
+}
+if ( !function_exists( 'sl9_is_local' ) ) {
+  function sl9_is_local() { return sl9_is_staging(); }
 }
 
 /**
@@ -82,4 +100,4 @@ pointer-events: none;
   }
 }
 
-include_once( DIRNAME( __FILE__ ) . '/inc/cf7-to-webhook.php' );
+include_once( DIRNAME( __FILE__ ) . '/inc/webhooks.php' );

@@ -52,12 +52,12 @@ Install the plugin through the Github Updater's Install Plugin section by using 
 
 We try and integrate with popular plugins to disable some functionality while in staging/development environments
 
-#### CF7 to Webhook/Zapier
+#### CF7 to Zapier and Gravity Forms webhook add-on
 
-By default, when running this dev mode plugin and the CF7 to Webhook plugin, it will disable webhooks entirely by passing an empty URL to the plugin in a dev environment. *This will also cause an error when trying to send a CF7 form on the frontend.*
+By default, when running this dev mode plugin and the CF7 to Webhook plugin or Gravity Forms Webhook add-on, it will disable webhooks entirely by passing an empty URL to the plugin in a dev environment. *This will also cause an error when trying to send a CF7 form on the frontend.*
 
-To override a webhook URL and test the webhook or to get form sending working again in staging, supply a URL like one at [webhooks.site](https://webhook.site/) in a constant in `wp-config.php`:
+To override a webhook URL and test the webhook or to get form sending working again for CF7 on staging/local, supply a URL like one at [webhooks.site](https://webhook.site/) in a constant in `wp-config.php`:
 
 ``
-define( 'CF7_TO_WEBHOOK_DEV_URL', 'https://webhook.site/5bb1f633-0686-4a3c-9443-fc7f27b02929' );
+define( 'SL9_DEV_WEBHOOK_URL', 'https://webhook.site/5bb1f633-0686-4a3c-9443-fc7f27b02929' );
 ``
