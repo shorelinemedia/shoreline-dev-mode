@@ -52,6 +52,10 @@ Install the plugin through the Github Updater's Install Plugin section by using 
 
 We try and integrate with popular plugins to disable some functionality while in staging/development environments
 
+#### Scripts & Codes / Headers and Footers plugin
+
+When this plugin is active and `sl9_is_staging()` return `true`, scripts and codes from plugins like Insert Headers and Footers and our very own Scripts and Codes will not be output on the frontend.  This is meant to stop tracking analytics or other events that should only be run in production environments to preserve data integrity.  However, if you need to test functionality of code that is in these plugin settings, add a constant to `wp-config.php` named `SL9_DEV_MODE_DO_SCRIPTS` and you can keep the plugin active so that it continues to give you visual cues about the dev environment and continues to block Webhooks on forms as well, but will keep the scripts intact.
+
 #### CF7 to Zapier and Gravity Forms webhook add-on
 
 By default, when running this dev mode plugin and the CF7 to Webhook plugin or Gravity Forms Webhook add-on, it will disable webhooks entirely by passing an empty URL to the plugin in a dev environment. *This will also cause an error when trying to send a CF7 form on the frontend.*

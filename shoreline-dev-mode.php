@@ -3,7 +3,7 @@
 * Plugin Name:          Shoreline Dev Mode
 * Plugin URI:           https://github.com/shorelinemedia/shoreline-dev-mode
 * Description:          Adds function <code>sl9_is_staging</code> and styles the admin bar with a red box and the word "DEV" in the top left to help indicate that you are on a staging/dev version of the site
-* Version:              1.4
+* Version:              1.5
 * Author:               Shoreline Media
 * Author URI:           https://shoreline.media
 * License:              GNU General Public License v2
@@ -101,3 +101,4 @@ pointer-events: none;
 }
 
 include_once( DIRNAME( __FILE__ ) . '/inc/webhooks.php' );
+include_once( DIRNAME( __FILE__ ) . '/inc/scripts-codes.php' );
