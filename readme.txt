@@ -18,15 +18,15 @@ This function also looks for the "Legacy" WPEngine staging environment setup as 
 When you are running your site locally, add **one** the following lines to your `wp-config.php` file:
 
 ```
-define( 'WP_ENV', 'development' );
+define( 'WP_ENVIRONMENT_TYPE', 'development' );
 ```
 OR
 ```
-define( 'WP_ENV', 'local' );
+define( 'WP_ENVIRONMENT_TYPE', 'local' );
 ```
 OR
 ```
-define( 'WP_ENV', 'staging' );
+define( 'WP_ENVIRONMENT_TYPE', 'staging' );
 ```
 OR
 ```
