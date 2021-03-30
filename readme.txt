@@ -1,12 +1,11 @@
-# Shoreline Dev Mode
-
+=== Shoreline Dev Mode ===
 Tags: 
 Requires at least:
 Tested up to:
 Requires PHP:
 Stable tag:
-**License:** GPLv2 or later \
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin adds support to be able to gate certain functionality depending on whether the Wordpress site is in developer/staging mode.
 
@@ -45,10 +44,7 @@ This plugin helps you know you are on a development version of a website. It add
 Once the plugin is installed, you can use a variable in your code to check for development mode:
 
 ```
-$is_dev 
-
-### function_exists( 'sl9_is_staging' ) ? sl9_is_staging() : false;
-
+$is_dev = function_exists( 'sl9_is_staging' ) ? sl9_is_staging() : false;
 ```
 
 This should be bulletproof-- if this plugin is removed and our function doesn't exist then it should return `false`.
